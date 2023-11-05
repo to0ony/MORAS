@@ -1,0 +1,9 @@
+CHIP Zadatak1B {
+    IN x, y, z;
+    OUT out;
+
+    PARTS:
+    Not(in=y, out=notY);
+    And(a=x, b=z, out=andAZ);
+    And(a=andAZ, b=notY, out=out);
+}

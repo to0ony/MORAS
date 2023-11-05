@@ -1,0 +1,9 @@
+CHIP Less {
+    IN a[16], b[16];
+    OUT out;
+
+    PARTS:
+    N16EQ16(in=a, b=b, out=eq); // Provjeri jesu li a i b jednaki
+    NOT(in=eq, out=not_eq); // Invertuj rezultat jednakosti
+    MUX16(a=a, b=not_eq, sel=eq, out=out);
+}
