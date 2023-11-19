@@ -1,0 +1,7 @@
+CHIP Clz {
+	IN in[16];
+	OUT out[16];
+	
+	PARTS:
+	
+}
