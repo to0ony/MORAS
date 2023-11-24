@@ -93,7 +93,6 @@ CHIP Clz {
     And(a=flag2, b=notOr1, out=flag1);
     Mux16(a=res2, b=temp1, sel=flag1, out=res1);
 
-    // Posljednji korak: Odabir rezultata na temelju zastave
     Or(a=in[0], b=false, out=or0);
     Not(in=or0, out=notOr0);
     Add16(a=temp1, b[0]=notOr0, b[1..15]=false, out=temp0);
