@@ -1,19 +1,19 @@
 CHIP Clz {
-	IN in[16];
-	OUT out[16];
-	
-	PARTS:
-	
-    Or(a=in[15], b=false, out=or15);
-    Not(in=or15, out=notOr15);
-    Add16(a=false, b[0]=notOr15, b[1..15]=false, out=temp15);
-    And(a=notOr15, b=true, out=flag15);    
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+
+    Or(a=in[15], b=false, out=orMSB);
+    Not(in=orMSB, out=notOrMSB);
+    Add16(a=false, b[0]=notOrMSB, b[1..15]=false, out=tempMSB);
+    And(a=notOrMSB, b=true, out=flagMSB);
 
     Or(a=in[14], b=false, out=or14);
     Not(in=or14, out=notOr14);
-    Add16(a=temp1, b[0]=notOr14, b[1..15]=false, out=temp14);
-    And(a=flag1, b=notOr14, out=flag14);
-    Mux16(a=temp15, b=temp14, sel=flag14, out=res14);
+    Add16(a=tempMSB, b[0]=notOr14, b[1..15]=false, out=temp14);
+    And(a=flagMSB, b=notOr14, out=flag14);
+    Mux16(a=tempMSB, b=temp14, sel=flag14, out=res14);
 
     Or(a=in[13], b=false, out=or13);
     Not(in=or13, out=notOr13);
