@@ -13,7 +13,7 @@ CHIP Clz {
     Not(in=or14, out=notOr14);
     Add16(a=temp1, b[0]=notOr14, b[1..15]=false, out=temp14);
     And(a=flag1, b=notOr14, out=flag14);
-    Mux16(a=tempMSB, b=temp14, sel=flag14, out=res14);
+    Mux16(a=temp15, b=temp14, sel=flag14, out=res14);
 
     Or(a=in[13], b=false, out=or13);
     Not(in=or13, out=notOr13);
