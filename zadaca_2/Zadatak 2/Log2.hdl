@@ -1,0 +1,31 @@
+CHIP Log2 {
+	IN in[16];
+	OUT out[16];
+	
+	PARTS:
+	Clz(in = in, out = null);
+	
+	Inc16(in = false, out = s1);
+	Inc16(in = s1, out = s2);
+	Inc16(in = s2, out = s3);
+	Inc16(in = s3, out = s4);
+	Inc16(in = s4, out = s5);
+	Inc16(in = s5, out = s6);
+	Inc16(in = s6, out = s7);
+	Inc16(in = s7, out = s8);
+	Inc16(in = s8, out = s9);
+	Inc16(in = s9, out = s10);
+	Inc16(in = s10, out = s11);
+	Inc16(in = s11, out = s12);
+	Inc16(in = s12, out = s13);
+	Inc16(in = s13, out = s14);
+	Inc16(in = s14, out = s15);
+	Inc16(in = s15, out = s16);
+	
+	Complement(in = null, out = comp);
+	Add16(a = s16, b = comp, out = out1);
+	Add16(a = true, b = out1, out = log);
+	
+	Or(a = in[15], b = false, out = nOut);
+	Mux16(a = log, b = true, sel = nOut, out = out);
+}
