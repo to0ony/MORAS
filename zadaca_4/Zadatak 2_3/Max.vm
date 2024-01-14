@@ -1,0 +1,47 @@
+function Max.max 3
+
+  // Spremanje brojeva
+  push argument 0
+  pop local 0  
+  push argument 1
+  pop local 1  
+  push argument 2
+  pop local 2  
+
+  // Usporedi prva dva argumenta
+  push local 0
+  push local 1
+  gt  
+  if-goto GREATER_THAN_EQUAL1  
+  //Prvi veci od drugog, preostaje ga usporedit s trecim samo ili...
+
+  // Prvi otpada jer je manji od drugog, poredimo drugi i treci
+  push local 1
+  push local 2
+  gt  
+  if-goto GREATER_THAN_EQUAL2  
+  //Drugi je veci od treceg i njega sibnemo kao rezultat
+
+  // Drugi otpada jer je manji od treceg, treceg sibnemo kao rezultat
+  push local 2
+  goto END  
+
+label GREATER_THAN_EQUAL1
+  push local 0
+  push local 2
+  gt  
+  if-goto GREATER_THAN_EQUAL3  
+
+  push local 2
+  goto END  
+
+label GREATER_THAN_EQUAL2
+  push local 1
+  goto END  
+
+label GREATER_THAN_EQUAL3
+  push local 0
+  goto END  
+
+label END
+  return

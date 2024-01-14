@@ -1,0 +1,38 @@
+//nti Pellov broj : n = 2 * n-1 + n-2
+//0,1,2,5,12....
+
+function Pell.pell 2
+	push argument 0
+	push constant 2
+	gt
+	if-goto nr
+
+	// if (a < 2) return a;
+	push argument 0
+	return
+
+label nr
+	push argument 0
+	push constant 1
+	sub
+
+	// pell(a - 1)
+	call Pell.pell 1
+
+	// l1 = l0 + l0
+	pop local 0
+	push local 0
+	push local 0
+	add
+	pop local 1
+
+	push argument 0
+	push constant 2
+	sub
+
+	// pell(a - 2)
+	call Pell.pell 1
+	push local 1
+	add
+
+	return

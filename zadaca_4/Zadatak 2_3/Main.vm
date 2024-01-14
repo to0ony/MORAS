@@ -1,0 +1,18 @@
+function Main.main 0
+push constant 1
+push constant 2
+push constant 3
+call Max.max 3
+
+push constant 4
+call Pell.pell 1
+
+push constant 100
+push constant 11
+call Div.div 2
+
+push constant 100
+push constant 11
+call Mod.mod 2
+
+return
