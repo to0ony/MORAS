@@ -1,0 +1,29 @@
+class Main {
+
+    function void main() {
+        var Array A;
+
+        let A = Array.new(5);
+
+        let A[0] = 3;
+        let A[1] = 10;
+        let A[2] = 2;
+        let A[3] = 4;
+        let A[4] = 1;
+
+        do Output.printString("Prije sortiranja:");
+        do Output.println();
+        do QuickSort.printArray(A, 5);
+        do Output.println();
+
+        do QuickSort.sort(A, 0, 4);
+
+        do Output.printString("Poslje sortiranja:");
+        do Output.println();
+        do QuickSort.printArray(A, 5);
+
+        do A.dispose();
+
+        return;
+    }
+}
